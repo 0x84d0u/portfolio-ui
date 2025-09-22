@@ -1,0 +1,1 @@
+export type { ClassNameValue as ClassName } from 'tailwind-merge'
