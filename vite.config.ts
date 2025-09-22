@@ -1,32 +1,36 @@
+import path from "path";
+import tailwindcss from "@tailwindcss/vite"
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
-import path from 'path';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    dts({
-      insertTypesEntry: true,
-    }),
+    tailwindcss(),
+    libInjectCss(),
+    dts({ include: ['src'], insertTypesEntry: true })
   ],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'PortfolioUI',
+      name: 'MyUiLibrary',
       formats: ['es', 'umd'],
-      fileName: (format) => `portfolio-ui.${format}.js`,
+      fileName: (format) => `ui-library.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'react/jsx-runtime',
         },
       },
     },
+    sourcemap: true,
+    emptyOutDir: true,
   },
   resolve: {
     alias: {
