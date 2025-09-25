@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
-import { viteStaticCopy } from 'vite-plugin-static-copy'; // 1. Import the plugin
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig(({ command }) => {
   const isDev = command === 'serve';
@@ -17,12 +17,12 @@ export default defineConfig(({ command }) => {
       dts({
         include: ['src'],
         insertTypesEntry: true,
-        rollupTypes: true,   // 👈 single d.ts per entry (index.d.ts, ui.d.ts, etc.)
+        rollupTypes: true,
       }),
       viteStaticCopy({
         targets: [
           {
-            src: path.resolve(__dirname, 'src/globals.css'),
+            src: 'src/globals.css',
             dest: '.'
           }
         ]
