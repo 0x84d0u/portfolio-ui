@@ -5,70 +5,53 @@ import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-export default defineConfig(({ command }) => {
-  const isDev = command === 'serve';
-
-  return {
-    root: isDev ? 'preview' : undefined,
-
-    plugins: [
-      react(),
-      libInjectCss(),
-      dts({
-        include: ['src'],
-        insertTypesEntry: true,
-        rollupTypes: true,
-      }),
-      viteStaticCopy({
-        targets: [
-          {
-            src: 'src/globals.css',
-            dest: '.'
-          }
-        ]
-      })
-    ],
-    build: {
-      lib: {
-        entry: {
-          index: path.resolve(__dirname, "src/index.ts"),
-          helpers: path.resolve(__dirname, "src/@helpers/index.ts"),
-          patterns: path.resolve(__dirname, "src/@patterns/index.ts"),
-          ui: path.resolve(__dirname, "src/@ui/index.ts"),
-        },
-        name: 'PortfolioUI',
-        formats: ["es", "cjs"],
-        fileName: (format, entryName) => {
-          // if (format === "umd") {
-          //   return `${entryName}.umd.cjs`
-          // }
-          if (format === "cjs") {
-            return `${entryName}.cjs`
-          }
-          return `${entryName}.js`
-        },
+export default defineConfig({
+  plugins: [
+    react(),
+    libInjectCss(),
+    dts({
+      insertTypesEntry: true,
+    }),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'src/globals.css',
+          dest: '.'
+        }
+      ]
+    })
+  ],
+  build: {
+    lib: {
+      entry: {
+        index: path.resolve(__dirname, "src/index.ts"),
+        helpers: path.resolve(__dirname, "src/@helpers/index.ts"),
+        patterns: path.resolve(__dirname, "src/@patterns/index.ts"),
+        ui: path.resolve(__dirname, "src/@ui/index.ts"),
       },
-      rollupOptions: {
-        external: ['react', 'react-dom', 'react/jsx-runtime'],
-        output: {
-          globals: {
-            react: 'React',
-            'react-dom': 'ReactDOM',
-            'react/jsx-runtime': 'react/jsx-runtime',
-          },
-        },
-      },
-      sourcemap: true,
-      emptyOutDir: true,
+      name: 'PortfolioUI',
+      formats: ["es", "cjs"],
+      // Corrected fileName to output .es.js and .cjs.js
+      fileName: (format, entryName) => `${entryName}.${format}.js`,
     },
-    resolve: {
-      alias: {
-        "@helpers": path.resolve(__dirname, "./src/@helpers"),
-        "@patterns": path.resolve(__dirname, "./src/@patterns"),
-        "@ui": path.resolve(__dirname, "./src/@ui"),
-        "@src": path.resolve(__dirname, "./src"),
+    rollupOptions: {
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'react/jsx-runtime',
+        },
       },
     },
-  }
-
+    sourcemap: true,
+    emptyOutDir: true,
+  },
+  resolve: {
+    alias: {
+      // Adjusted alias to match tsconfig
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 });
+

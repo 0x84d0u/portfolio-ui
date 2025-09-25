@@ -1,53 +1,25 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    /* shadcn/ui alignment */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@helpers/*": [
-        "src/@helpers/*"
-      ],
-      "@patterns/*": [
-        "src/@patterns/*"
-      ],
-      "@ui/*": [
-        "src/@ui/*"
-      ],
-      "@src/*": [
-        "src/*"
-      ],
-    },
-    /* Library-specific settings */
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "outDir": "dist"
-  },
-  "include": [
-    "src",
-    "preview"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
+      "@/*": ["./src/*"]
     }
-  ]
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
