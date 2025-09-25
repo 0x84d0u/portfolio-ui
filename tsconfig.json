@@ -2,7 +2,11 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": false,
@@ -18,7 +22,18 @@
     /* shadcn/ui alignment */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@helpers/*": [
+        "src/@helpers/*"
+      ],
+      "@patterns/*": [
+        "src/@patterns/*"
+      ],
+      "@ui/*": [
+        "src/@ui/*"
+      ],
+      "@src/*": [
+        "src/*"
+      ],
     },
     /* Library-specific settings */
     "declaration": true,
@@ -26,6 +41,13 @@
     "sourceMap": true,
     "outDir": "dist"
   },
-  "include": ["src", "preview"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src",
+    "preview"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

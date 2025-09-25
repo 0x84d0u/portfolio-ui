@@ -13,14 +13,31 @@ export default defineConfig(({ command }) => {
     plugins: [
       react(),
       libInjectCss(),
-      dts({ include: ['src'], insertTypesEntry: true })
+      dts({
+        include: ['src'],
+        insertTypesEntry: true,
+        rollupTypes: true,   // 👈 single d.ts per entry (index.d.ts, ui.d.ts, etc.)
+      })
     ],
     build: {
       lib: {
-        entry: path.resolve(__dirname, 'src/index.ts'),
-        name: 'MyUiLibrary',
-        formats: ['es', 'umd'],
-        fileName: (format) => `ui-library.${format}.js`,
+        entry: {
+          src: path.resolve(__dirname, "src/index.ts"),
+          helpers: path.resolve(__dirname, "src/@helpers/index.ts"),
+          patterns: path.resolve(__dirname, "src/@patterns/index.ts"),
+          ui: path.resolve(__dirname, "src/@ui/index.ts"),
+        },
+        name: 'PortfolioUI',
+        formats: ["es", "cjs", "umd"],
+        fileName: (format, entryName) => {
+          if (format === "umd") {
+            return `${entryName}.umd.cjs`
+          }
+          if (format === "cjs") {
+            return `${entryName}.cjs`
+          }
+          return `${entryName}.js`
+        },
       },
       rollupOptions: {
         external: ['react', 'react-dom', 'react/jsx-runtime'],
@@ -37,7 +54,10 @@ export default defineConfig(({ command }) => {
     },
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "./src"),
+        "@helpers": path.resolve(__dirname, "./src/@helpers"),
+        "@patterns": path.resolve(__dirname, "./src/@patterns"),
+        "@ui": path.resolve(__dirname, "./src/@ui"),
+        "@src": path.resolve(__dirname, "./src"),
       },
     },
   }

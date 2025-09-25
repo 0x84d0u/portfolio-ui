@@ -1,0 +1,1 @@
+export type { NavigationLinkProps } from './NavigationLink'
