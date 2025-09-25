@@ -13,7 +13,6 @@ export const HeadingSubtitleText = (props: TypographyBaseProps) => <TypographyBa
 export const SectionTitleText = (props: TypographyBaseProps) => <TypographyBase size='2xl' weight='semibold' {...props} />
 export const SectionSubtitleText = (props: TypographyBaseProps) => <TypographyBase color="muted"  {...props} />
 
-
 export const ContentTitleText = (props: TypographyBaseProps) => <TypographyBase size='xl' weight='semibold' {...props} />
 export const ContentSubtitleText = (props: TypographyBaseProps) => <TypographyBase color="muted" {...props} />
 

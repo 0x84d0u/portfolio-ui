@@ -33,8 +33,8 @@ export const Typography = {
         Subtitle: HeadingSubtitleText,
     },
     Section: {
-        Title: HeadingTitleText,
-        Subtitle: HeadingSubtitleText,
+        Title: SectionTitleText,
+        Subtitle: SectionSubtitleText,
     },
     Content: {
         Title: ContentTitleText,
