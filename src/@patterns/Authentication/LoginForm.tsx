@@ -7,7 +7,7 @@ type Data = {
     password: string
     remember: boolean
 }
-type Props = Pick<FormWrapperProps, 'title' | 'description' | 'links'> & {
+type Props = Pick<FormWrapperProps, 'links'> & {
     action: FormAction<Data>
 }
 
@@ -15,7 +15,6 @@ type Props = Pick<FormWrapperProps, 'title' | 'description' | 'links'> & {
 export function LoginForm({
     ...props
 }: Props) {
-
     const form = useForm<Data>({
         initialValues: { email: "", password: "", remember: false },
         action: async (values) => {
