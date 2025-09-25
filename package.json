@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": false,
   "type": "module",
-  "main": "./dist/ui-library.umd.cjs",
-  "module": "./dist/ui-library.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
@@ -32,41 +32,41 @@
     ".": {
       "import": {
         "types": "./dist/index.d.ts",
-        "default": "./dist/ui-library.js"
+        "default": "./dist/index.js"
       },
       "require": {
         "types": "./dist/index.d.ts",
-        "default": "./dist/ui-library.umd.cjs"
+        "default": "./dist/index.cjs"
       }
     },
     "./helpers": {
       "import": {
-        "types": "./dist/@helpers/index.d.ts",
-        "default": "./dist/@helpers/index.js"
+        "types": "./dist/helpers.d.ts",
+        "default": "./dist/helpers.js"
       },
       "require": {
-        "types": "./dist/@helpers/index.d.ts",
-        "default": "./dist/@helpers/index.cjs"
+        "types": "./dist/helpers.d.ts",
+        "default": "./dist/helpers.cjs"
       }
     },
     "./patterns": {
       "import": {
-        "types": "./dist/@patterns/index.d.ts",
-        "default": "./dist/@patterns/index.js"
+        "types": "./dist/patterns.d.ts",
+        "default": "./dist/patterns.js"
       },
       "require": {
-        "types": "./dist/@patterns/index.d.ts",
-        "default": "./dist/@patterns/index.cjs"
+        "types": "./dist/patterns.d.ts",
+        "default": "./dist/patterns.cjs"
       }
     },
     "./ui": {
       "import": {
-        "types": "./dist/@ui/index.d.ts",
-        "default": "./dist/@ui/index.js"
+        "types": "./dist/ui.d.ts",
+        "default": "./dist/ui.js"
       },
       "require": {
-        "types": "./dist/@ui/index.d.ts",
-        "default": "./dist/@ui/index.cjs"
+        "types": "./dist/ui.d.ts",
+        "default": "./dist/ui.cjs"
       }
     }
   },

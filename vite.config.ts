@@ -22,17 +22,17 @@ export default defineConfig(({ command }) => {
     build: {
       lib: {
         entry: {
-          src: path.resolve(__dirname, "src/index.ts"),
+          index: path.resolve(__dirname, "src/index.ts"),
           helpers: path.resolve(__dirname, "src/@helpers/index.ts"),
           patterns: path.resolve(__dirname, "src/@patterns/index.ts"),
           ui: path.resolve(__dirname, "src/@ui/index.ts"),
         },
         name: 'PortfolioUI',
-        formats: ["es", "cjs", "umd"],
+        formats: ["es", "cjs"],
         fileName: (format, entryName) => {
-          if (format === "umd") {
-            return `${entryName}.umd.cjs`
-          }
+          // if (format === "umd") {
+          //   return `${entryName}.umd.cjs`
+          // }
           if (format === "cjs") {
             return `${entryName}.cjs`
           }
