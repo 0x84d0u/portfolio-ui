@@ -23,7 +23,7 @@ export default defineConfig(({ command }) => {
         targets: [
           {
             src: path.resolve(__dirname, 'src/globals.css'),
-            dest: './'
+            dest: '.'
           }
         ]
       })
