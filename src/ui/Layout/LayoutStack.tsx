@@ -1,5 +1,4 @@
-import { ClassName, cn } from "@helpers/index"
-
+import { ClassName, cn } from "@/helpers"
 import { cva, VariantProps } from "class-variance-authority"
 
 

@@ -1,4 +1,4 @@
-import { Layout, LayoutStackProps, Typography, TypographyBaseProps } from "@ui/index";
+import { Layout, LayoutStackProps, Typography, TypographyBaseProps } from "@/ui";
 
 export type NavigationLinkProps = React.ComponentProps<'a'> & TypographyBaseProps & {
     stackProps?: LayoutStackProps

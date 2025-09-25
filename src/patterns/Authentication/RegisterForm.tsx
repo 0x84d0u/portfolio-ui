@@ -1,14 +1,16 @@
-import { FormAction, setTimeoutAsync, useForm } from "@helpers/index"
-import { Field, Form, FormWrapperProps, toast } from "@ui/index"
+'use client'
+
+import { Field, Form, FormWrapperProps, toast } from "@/ui"
+import { FormAction, setTimeoutAsync, useForm } from "@/helpers"
 
 type Data = {
     email: string
     password: string
 }
+
 type Props = Pick<FormWrapperProps, 'title' | 'description' | 'links'> & {
     action: FormAction<Data>
 }
-
 
 export function RegisterForm({
     ...props

@@ -1,4 +1,4 @@
-import { cn } from "@helpers/utils";
+import { cn } from "@/helpers";
 
 export function InputField({ className, type, ...props }: React.ComponentProps<"input">) {
   return (

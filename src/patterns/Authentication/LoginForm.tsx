@@ -1,6 +1,7 @@
-import { FormAction, setTimeoutAsync, useForm } from "@helpers/index"
-import { FormControl } from "@ui/Form/FormControl"
-import { Field, Form, FormWrapperProps, NavigationLinkProps, toast } from "@ui/index"
+'use client'
+
+import { Field, Form, FormWrapperProps, toast } from "@/ui"
+import { FormAction, setTimeoutAsync, useForm } from "@/helpers"
 
 type Data = {
     email: string
@@ -43,8 +44,8 @@ export function LoginForm({
         <Form.Control label="Password" iconName="lock" errors={form.errors.password}>
             <Field.Input name="password" disabled={form.isPending} />
         </Form.Control>
-        <FormControl>
+        <Form.Control>
             <Field.Checkbox name="remember" label="Remember me"/>
-        </FormControl>
+        </Form.Control>
     </Form.Wrapper>
 }

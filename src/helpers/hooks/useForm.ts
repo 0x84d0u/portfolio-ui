@@ -1,3 +1,5 @@
+'use client'
+
 import { useActionState, useState } from 'react';
 
 export type FormAction<T extends Record<string, any>> = (

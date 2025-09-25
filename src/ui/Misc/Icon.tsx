@@ -1,7 +1,7 @@
 
 
 
-import { ClassName, cn } from "@helpers/index";
+import { ClassName, cn } from "@/helpers";
 import { DynamicIcon } from "lucide-react/dynamic"
 
 export type IconProps = React.ComponentProps<typeof DynamicIcon> & {

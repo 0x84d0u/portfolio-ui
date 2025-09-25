@@ -1,6 +1,6 @@
-import { Layout, Typography, LayoutStackProps, Button, NavigationLinkProps } from "@ui/index";
-import { ClassName, cn } from "@helpers/index"
-import { NavigationLink } from "@ui/Navigation/NavigationLink";
+import { Layout, Typography, LayoutStackProps, Button, NavigationLinkProps } from "@/ui";
+import { ClassName, cn } from "@/helpers"
+import { Navigation } from "@/ui";
 
 
 export type FormWrapperProps = Pick<React.ComponentProps<"form">, 'action' | 'children'> & {
@@ -24,7 +24,7 @@ export const FormWrapper = ({
     // Header
     title,
     description,
-    isError,
+    // isError,
     errorMessage,
     
     // Card
@@ -44,7 +44,7 @@ export const FormWrapper = ({
     action,
     center,
     
-    ...props
+    // ...props
 }: FormWrapperProps) => {
 
     const rootProps: React.ComponentProps<"form"> = {
@@ -96,7 +96,7 @@ export const FormWrapper = ({
         </Layout.Stack>
 
         <Layout.Stack {...footerProps}>
-            {links?.map((linkProps, key) => <NavigationLink key={key} {...linkProps}/> )}
+            {links?.map((linkProps, key) => <Navigation.Link key={key} {...linkProps}/> )}
         </Layout.Stack>
 
     </form>

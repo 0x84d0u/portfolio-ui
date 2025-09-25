@@ -1,5 +1,5 @@
-import { Children, ClassName, TagName , cn} from "@helpers/index"
-import { Layout, LayoutContainerProps } from "@ui/index"
+import { Children, ClassName, TagName , cn} from "@/helpers"
+import { Layout, LayoutContainerProps } from "@/ui"
 
 export type LayoutSectionProps =  {
     children?: Children

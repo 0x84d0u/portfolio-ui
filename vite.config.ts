@@ -25,9 +25,9 @@ export default defineConfig({
     lib: {
       entry: {
         index: path.resolve(__dirname, "src/index.ts"),
-        helpers: path.resolve(__dirname, "src/@helpers/index.ts"),
-        patterns: path.resolve(__dirname, "src/@patterns/index.ts"),
-        ui: path.resolve(__dirname, "src/@ui/index.ts"),
+        helpers: path.resolve(__dirname, "src/helpers/index.ts"),
+        patterns: path.resolve(__dirname, "src/patterns/index.ts"),
+        ui: path.resolve(__dirname, "src/ui/index.ts"),
       },
       name: 'PortfolioUI',
       formats: ["es", "cjs"],

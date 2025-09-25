@@ -1,11 +1,11 @@
-import { Icon, IconName, Layout, Typography } from "@ui/index";
-import { Children } from "@helpers/index"
+import { Icon, IconName, Layout, Typography } from "@/ui";
+import { Children } from "@/helpers"
 
 export type FormControlProps =  {
     label?: string
     iconName?: IconName
     description?: string
-    infos?: string
+    // infos?: string
     
     errors?: string[]
     isRequired?: boolean
@@ -16,7 +16,7 @@ export const FormControl = ({
     label = 'Email',
     iconName,
     description,
-    infos,
+    // infos,
 
     errors,
     isRequired,
