@@ -29,6 +29,7 @@
   ],
   "license": "MIT",
   "exports": {
+    "./globals.css": "./dist/globals.css",
     ".": {
       "import": {
         "types": "./dist/index.d.ts",

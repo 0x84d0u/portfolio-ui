@@ -1,4 +1,3 @@
-import './globals.css'; 
 
 export * from './@ui';
 export * from './@patterns';
